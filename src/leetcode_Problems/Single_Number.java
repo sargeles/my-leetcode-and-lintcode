@@ -1,4 +1,4 @@
-package leetcodeProblems;
+package leetcode_Problems;
 
 public class Single_Number {
     public int singleNumber(int[] nums) {
