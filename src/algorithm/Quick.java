@@ -5,15 +5,15 @@ public class Quick {
 	public static void sort(int[] a,int start,int end) {
 		if(start<end){
 			int i=start,j=end;
-			boolean flag=false;
-			int key= a[start];
-			while(i<j){
-				while(i<j&&a[j] >= key)j--;
-				if(i<j){a[i]=a[j];i++;flag=true;}
+			boolean flag=false;//纪录是否有变化
+			int key= a[start];//纪录中间值
+			while(i<j){//判断传入区间大于1，即，非，单个数。
+				while(i<j&&a[j] >= key)j--;//没有大于key的数
+				if(i<j){a[i]=a[j];i++;flag=true;}//有大于key的数，if语句确保是上一个判断走了&&后面的部分
 				while(i<j&&a[i] < key)i++;
 				if(i<j){a[j]=a[i];j--;flag=true;}
 			}
-			a[i]=key;
+			a[i]=key;//这里i=j，a[j]=key也行
 			show(a);
 			if(flag)
 			{sort(a,start,i-1);sort(a,i+1,end);}
