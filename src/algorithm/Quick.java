@@ -3,7 +3,7 @@ package algorithm;
 
 public class Quick {
 	public static void sort(int[] a,int start,int end) {
-		if(start<end){
+		if(start>=end)return;
 			int i=start,j=end;
 			boolean flag=false;//纪录是否有变化
 			int key= a[start];//纪录中间值
@@ -16,8 +16,8 @@ public class Quick {
 			a[i]=key;//这里i=j，a[j]=key也行
 			show(a);
 			if(flag)
-			{sort(a,start,i-1);sort(a,i+1,end);}
-		}
+			{sort(a,start,i-1);sort(a,i+1,end);} //这里也是i=j也行
+		
 	}
 
 	private static boolean less(int v, int w) {
